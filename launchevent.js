@@ -4,7 +4,7 @@
  *   - Antes de las 7:45 a.m. o después de las 5:15 p.m. (hora del equipo)
  *   - Sábados y domingos (todo el día)
  *
- * Versión 1.1 (diagnóstico): escribe cada paso en la consola con el prefijo
+ * Versión 1.2 (diagnóstico): escribe cada paso en la consola con el prefijo
  * [AvisoDesconexion] y nunca deja el envío colgado (try/catch + tiempo límite).
  */
 
@@ -27,7 +27,13 @@ function log(msg) {
   try { console.log("[AvisoDesconexion] " + msg); } catch (e) {}
 }
 
-log("script cargado v1.1");
+log("script cargado v1.2");
+
+// Obligatorio: indica a Outlook que el complemento terminó de inicializarse.
+// Sin esto, la página carga pero Outlook nunca llama al handler.
+Office.onReady(function (info) {
+  log("onReady OK | host: " + (info && info.host) + " | plataforma: " + (info && info.platform));
+});
 
 function esFueraDeHorario(fecha) {
   var dia = fecha.getDay(); // 0 = domingo, 6 = sábado
