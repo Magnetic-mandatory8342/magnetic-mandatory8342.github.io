@@ -10,7 +10,7 @@
 
 // ====== CONFIGURACIÓN ======
 var HORA_INICIO = { h: 7, m: 45 };   // 7:45 a.m.
-var HORA_FIN = { h: 10, m: 15 };     // 10:15 a.m.
+var HORA_FIN = { h: 17, m: 15 };     // 5:15 p.m.
 
 // Fragmento sin tildes para detectar si el aviso ya está (evita duplicados en respuestas/reenvíos
 // y evita doble aviso si el equipo también tiene la macro VBA).
